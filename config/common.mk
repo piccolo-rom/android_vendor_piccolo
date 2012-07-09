@@ -1,16 +1,16 @@
-PRODUCT_BRAND ?= cyanogenmod
+PRODUCT_BRAND ?= piccolo
 
 ifneq ($(TARGET_BOOTANIMATION_NAME),)
     PRODUCT_COPY_FILES += \
-        vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+        vendor/piccolo/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 ifdef CM_NIGHTLY
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmodnightly
+    ro.rommanager.developerid=piccolonightly
 else
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=cyanogenmod
+    ro.rommanager.developerid=piccolo
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -27,38 +27,38 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
-    vendor/cm/CHANGELOG.mkdn:system/etc/CHANGELOG-CM.txt
+    vendor/piccolo/CHANGELOG.mkdn:system/etc/CHANGELOG-PICCOLO.txt
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/cm/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
+    vendor/piccolo/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/piccolo/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/piccolo/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/cm/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/piccolo/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/piccolo/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/piccolo/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Compcache/Zram support
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
-    vendor/cm/prebuilt/common/bin/compcache:system/bin/compcache \
-    vendor/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+    vendor/piccolo/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
+    vendor/piccolo/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/piccolo/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/proprietary/RomManager.apk:system/app/RomManager.apk \
-    vendor/cm/proprietary/Term.apk:system/app/Term.apk \
-    vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
+    vendor/piccolo/proprietary/RomManager.apk:system/app/RomManager.apk \
+    vendor/piccolo/proprietary/Term.apk:system/app/Term.apk \
+    vendor/piccolo/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/cm/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    vendor/piccolo/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/piccolo/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -66,14 +66,14 @@ PRODUCT_COPY_FILES += \
 
 # This is CM!
 PRODUCT_COPY_FILES += \
-    vendor/cm/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
+    vendor/piccolo/config/permissions/com.cyanogenmod.android.xml:system/etc/permissions/com.cyanogenmod.android.xml
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/mkshrc:system/etc/mkshrc
+    vendor/piccolo/prebuilt/common/etc/mkshrc:system/etc/mkshrc
 
 # T-Mobile theme engine
-include vendor/cm/config/themes_common.mk
+include vendor/piccolo/config/themes_common.mk
 
 # Required CM packages
 PRODUCT_PACKAGES += \
@@ -116,8 +116,8 @@ PRODUCT_PACKAGES += \
     mke2fs \
     tune2fs
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/piccolo/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/piccolo/overlay/common
 
 PRODUCT_VERSION_MAJOR = 9
 PRODUCT_VERSION_MINOR = 0
